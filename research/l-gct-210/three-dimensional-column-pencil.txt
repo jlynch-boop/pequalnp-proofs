@@ -1,0 +1,89 @@
+The next column-variation case for L-gct-210
+
+Suppose a nine-dimensional level space L has a three-dimensional
+subspace of directions supported in a fixed column. Its column-only
+subspace is contained in the sum-zero space. Put the column last,
+write that subspace W={1,v}-perp inside C^5 with v nonzero and
+sum(v)=0, and let P be the projection to the other four columns.
+Then dim P=6. Write r for the last-column direction, s=sum(r), and
+t=v dot r. Both s and t descend to linear forms on P because they
+annihilate W.
+
+Cofactor and row-sum equations
+
+The five cofactors of the last column, viewed as a vector F(D), are
+orthogonal to W. Write F(D)=lambda(D) 1+mu(D) v. The permanent gives
+
+  (5+s) lambda + t mu = 120.
+
+If s were nonzero on ker t, one could scale a vector there to s=-5,
+contradicting this equation. Thus s is a scalar multiple of t and
+lambda=24 on ker t. In the case t=0 identically this says s=0 and
+lambda=24 everywhere.
+
+Let rho be the five-vector of row sums of D. The degree-one
+cofactor vector is 6 (sum(rho) 1 - rho). It lies in span(1,v), so
+rho lies there as well. Since sum(rho)=-s, the simultaneous
+conditions rho=0 and t=0 impose at most two linear constraints.
+They cut out a space Q of dimension at least four with row-centered
+D and lambda=24.
+
+The quadratic pencil on Q
+
+Denote the rows of D by d_i, each in the centered three-dimensional
+space U, and put S=sum_i d_i. The sum of all cofactor quadratic
+coefficients is zero, since lambda=24. Expanding the quadratic
+matching sums then gives 2 d_i dot (S-d_i)=mu_2 v_i, where mu_2
+is the homogeneous degree-two term of mu. Hence the five forms
+
+  norm(2 d_i-S)^2 = A + v_i B,
+  A = S dot S, B = -2 mu_2
+
+all have rank at most three. Norm squares and dots are bilinear.
+If the five v_i are distinct, every 4 by 4 minor of A+zB vanishes
+at five distinct values of z and has degree at most four. Thus
+the entire pencil has rank at most three.
+
+An exact reduction when S is surjective and the v_i are distinct
+
+In this case A has rank three. Let R be the common radical of
+A and B, and J_i be the map 2 d_i-S into U. If the Gram form
+J_i^T J_i=A+v_i B has rank at least two, the dot product restricted
+to the image of J_i is nondegenerate. Otherwise a degenerate
+two-plane in U would have rank one, and a line has rank at most one.
+It follows that J_i kills R at every rank-at-least-two value.
+There is at most one other value among the v_i. Two distinct
+forms of rank at most one would span the pencil and force its
+generic rank at most two. Also S kills R since it is surjective.
+The identity sum_i J_i=-3 S makes even the remaining J_i kill R.
+Hence every row kills R and R=0.
+
+Choose coordinates with A=diag(I_3,0) and write the block form
+of B as [[M,C],[C^T,N]]. Over C(z) the Schur complement must vanish
+because the pencil has rank three. It is
+
+  z N - z^2 C^T (I_3+z M)^-1 C.
+
+Its first two coefficients give N=0 and C^T C=0. The image of
+C in U is totally isotropic, so rank C is at most one. The absence
+of a common radical makes C injective on the nullspace of A.
+Thus dim Q<=4 and therefore dim Q=4. The remaining case has an
+actual singular pencil with a moving radical, not a fixed radical.
+
+A concrete realization that fails the cubic test
+
+For a centered nonzero null vector n, let row 0 be an arbitrary
+a in U and put the remaining rows equal to v_i Z n, with v_0=0
+and the four other v_i distinct and nonzero. This four-dimensional
+example satisfies the quadratic pencil identity: S=a, the row-0
+norm is a dot a, and the other norms are a dot a-4v_i Z(a dot n).
+The resulting pencil has a moving radical for nonzero n.
+
+The coefficient linear in a and quadratic in Z of the cofactor
+deleting row i>0 is 2 e_2(v_except_i) sum_j a_j n_j^2. The factor
+sum_j a_j n_j^2 is a nonzero linear form on U. Otherwise all n_j^2
+would be equal, then sum(n_j^2)=0 would give n=0. Since lambda=24,
+the four coefficients e_2(v_except_i) must be proportional to v_i.
+But sum(v)=0 gives e_2(v_except_i)=e_2(v)+v_i^2. Four distinct
+v_i cannot all solve the same monic quadratic. Thus this realization
+fails. Other isometric realizations and repeated v_i remain open.

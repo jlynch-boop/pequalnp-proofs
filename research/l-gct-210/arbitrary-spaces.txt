@@ -1,0 +1,117 @@
+Necessary conditions for an arbitrary counterexample
+
+Let H be the 24-dimensional complex space of 5 by 5 matrices with
+total sum zero. A level space is contained in H and is totally
+isotropic for the symmetric bilinear form
+
+  B(U,V) = U dot V - rowSum(U) dot rowSum(V) - colSum(U) dot colSum(V).
+
+Dots are bilinear, with no complex conjugation. This follows by
+expanding the degree-one and degree-two coefficients. On H the
+operator for B has eigenvalue 1 on the doubly centered directions
+and -4 on the row-constant and column-constant directions. It is
+nondegenerate. The inverse for entrywise pairing is
+
+  Q^-1(U) = U - (rowSum(U) 1^T + 1 colSum(U)^T) / 4.
+
+Any 9-dimensional example has every row and column projection rank
+between two and four. Rank at most one would leave a kernel of
+dimension at least eight supported on four rows or columns,
+contradicting the checked 4 by 5 bound L-gct-215. Rank five would
+allow a direction whose row or column equals the all-ones vector,
+which could be canceled to make the permanent zero.
+
+A rank test on annihilating forms
+
+More generally take any row/column rectangle with |R|+|C|=6. Its
+coordinate image in a level space cannot contain the all-ones
+vector. A direction that makes those entries zero at J would
+leave the rows R only |R|-1 available columns. Thus each of the
+210 rectangles has a linear annihilating form supported on it
+whose coefficients sum to one. This includes the individual row
+and column forms.
+
+For each such coefficient matrix M put N(M) = Q^-1(M-J/25). Then
+B(T,N(M)) = T dot M for T in H. For the span W of any selection of
+these normals, the level space is contained in W-perp. If r is the
+rank of the Gram matrix of the chosen normals under B, the radical
+of W-perp has dimension dim W - r. The dimension of a totally
+isotropic space inside W-perp is at most floor((24-r)/2). Thus a
+9-space forces r <= 6 for every choice of these normals.
+
+For row weights alpha_i and column weights beta_j, each with
+sum one, the Gram entries can be evaluated without constructing
+the normals. The row-row entry (i,k) is
+
+  delta_ik (alpha_i dot alpha_k - 1/4) - (alpha_i dot alpha_k)/4 + 3/50,
+
+and the column-column entries have the same form. The row-column
+entry (i,j) is
+
+  alpha_ij beta_ij - (alpha_ij + beta_ij)/4 + 3/50.
+
+These constraints have a definite limitation. Fix the diagonal of
+the direction to be zero. Every rectangle with |R|+|C|=6 meets the
+diagonal, so all the rectangle conditions hold in this 20-dimensional
+space. Its intersection with H has dimension 19. Every complex
+quadratic form in 19 variables admits a totally isotropic space of
+dimension at least nine. Therefore the first two coefficients and
+the rectangle obstruction together cannot exclude all nine-spaces.
+This example is about those necessary conditions; higher permanent
+coefficients still need to be imposed.
+
+The bound in a 15-dimensional family without a fixed zero block
+
+Consider T=[[A,b],[a^T,0]], where the 4 by 4 core A is doubly centered
+and a,b lie in the three-dimensional zero-sum space. This gives
+dimension 15. The quadratic condition is sum_ij A_ij^2=0 because
+the row and column terms cancel the border squares. Its restriction
+to the core variables is nondegenerate of rank nine. If L had
+dimension nine in this family, its core image would have dimension
+r<=4 and its border kernel W would have dimension w=9-r>=5.
+
+Fix a lift with core A. In the cubic matching sum of the lift plus
+z(a0,b0), with (a0,b0) in W, the coefficient of z^2 is b0^T A a0.
+Indeed, the third entry of a matching must be in the core outside
+the row of b0 and column of a0. The sum over such entries is the
+corresponding entry of A, by double centering. Thus the quadratic
+form b0^T A a0 vanishes on W. It has rank 2 rank(A), giving
+w <= 6-rank(A). Since w>=5, every core matrix has rank at most one.
+
+A linear space of matrices all of rank at most one has either
+a common left factor or a common right factor. To see this, take
+one nonzero rank-one matrix uv^T. A second rank-one matrix must
+share the left or right factor, since otherwise their sum has
+rank two. A left-sharing matrix and a right-sharing matrix with
+neither factor shared with each other also have rank-two sum.
+In the 3 by 3 core representation this gives r<=3. Then w>=6
+and the same inequality forces rank(A)=0 for each A, which is
+impossible when w<=6 and r+w=9. Hence dim L<=8 in this family.
+
+Exact search over coordinate Fourier spans
+
+The script search_fourier_spans.py considers outer products of
+Fourier vectors on each cycle of a permutation of five rows and
+each cycle of a permutation of five columns. It tests every
+coordinate span of those modes through branch and bound across
+all 28 partition pairs up to transposition.
+
+All roots can be taken as powers of the same primitive 60th root.
+Sending that root to a primitive 60th root modulo 61 is a ring
+homomorphism. Each rejected support has an explicit combination
+of coefficients in {1,...,5} where the permanent is unequal to
+120 modulo 61. Such a failure also excludes the corresponding
+complex span. The coefficient probes exhaust the degree-five
+integer simplex on a fixed basis. Evaluation on this simplex
+determines a polynomial of degree at most five because its
+matrix in the falling-factorial basis is triangular and the
+factorials through 5 are invertible modulo 61. This explains
+why testing supports of size at most five suffices for the
+modular computation.
+
+No coordinate span of dimension nine survives. The largest
+passing dimension modulo 61 was six over the 28 partition
+pairs. A modular pass alone would supply a candidate to check
+over the complex numbers. These exclusions concern spans
+of subsets of the specified Fourier bases, including choices
+with nonreal modes, and do not establish the arbitrary bound.

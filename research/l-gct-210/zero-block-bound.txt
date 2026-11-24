@@ -1,0 +1,229 @@
+The dimension bound for a fixed 2 by 3 zero block
+
+Claim. Let L be a complex linear space of 5 by 5 matrices with a
+common 2 by 3 zero block and perm(J+T)=120 for every T in L. Then
+dim L <= 8. The result is a mathematical proof for this support
+condition. The desk's unrestricted L-gct-210 remains open.
+
+1. Reduction to a 5-dimensional projection and a 4-dimensional kernel
+
+After permuting rows and columns, write T = [[0,C],[D,E]], where C
+is 2 by 2 and D is 3 by 3. We may take dim L = 9 if the bound fails.
+The degree-five coefficient of perm(J+zT) is perm(C)perm(D), so one
+factor vanishes on L. If perm(C) vanishes, the C projection is an
+isotropic subspace of a nondegenerate quadratic form in four
+variables and has dimension at most two. The kernel is a level
+space on three rows of width five and has dimension at most six by
+checked L-gct-156. This contradicts dim L = 9.
+
+Thus the D image P is contained in perm(D)=0. Its kernel K has
+directions in the last two columns only. Write those columns x,y.
+The first two coefficients of perm(J+zT) give sum(x)+sum(y)=0 and
+Q0(x,y) = sum(x)sum(y) - x dot y = 0. On the 9-dimensional
+total-sum-zero space Q0 is nondegenerate, so dim K <= 4 and dim P >= 5.
+
+Chan and Ilten, section 7B, show that the only six-dimensional
+vector subspaces of the 3 by 3 permanent-zero locus have a fixed
+zero row or column. No larger space can exist there, since it
+would contain infinitely many six-dimensional subspaces. A fixed
+zero row of D gives a fixed 3 by 3 zero block of T, already bounded
+by seven. A fixed zero column of D gives a fixed zero column of T,
+and checked L-gct-215 bounds the resulting 4 by 5 space by seven.
+Thus dim P = 5, dim K = 4, and P has neither a fixed zero row nor
+a fixed zero column. The conversion to the rectangular level-space
+conditions follows by expanding the permanent in z and completing
+each selected matching with the remaining all-ones entries.
+
+2. Row-sum images of the possible D projections
+
+By Chan and Ilten, Proposition 7.4, every allowed five-dimensional
+P is, up to row/column permutations, in their product-of-lines
+family, their Hirzebruch-surface family, or the latter's transpose.
+The other components consist of spaces with a fixed zero row or
+column, including the embedded points. We show that the image of
+the three row sums is either all of C^3 or a coordinate plane.
+
+For the product-of-lines family take the four annihilating
+linear forms on D (row/column indices 0,1,2):
+
+  D11,
+  u0 D10 + u1 D12,
+  v0 D01 + v1 D21,
+  u0 v0 D00 - u1 v0 D02 - u0 v1 D20 + u1 v1 D22,
+
+with (u0:u1), (v0:v1) in P^1. A dependence of the row sums is
+equivalent to a row-constant matrix in their span. The middle
+row of such a matrix can be nonzero exactly when u0=u1. For
+a nonzero outer row the last form must have equal entries at its
+two nonmiddle positions, so u0=-u1 is required. The middle-column
+coefficients of the two outer rows are proportional to (v0,v1),
+whereas their nonmiddle coefficients are proportional to (v0,-v1).
+These lines coincide only if v0 v1=0. The two possibilities are
+disjoint, and each gives precisely one coordinate row sum zero.
+
+For the Hirzebruch surface use annihilator column spaces
+
+  col 0: span(e1,(u0,0,u1)),
+  col 1: span((u0 w,v,-u1 w)),
+  col 2: span((u0 w,-v,-u1 w)).
+
+Here (u0,u1) is nonzero and (v,w) is nonzero, with the usual
+Hirzebruch-surface scalings from the paper. These spans reproduce
+the t2=0 affine chart on p. 675 when u0=w=1, u1=t1, v=t3.
+They have constant total rank four for all parameters, hence
+give a morphism on the projective parameter surface. Its image
+is the closure of the affine chart and thus the whole component.
+The minus sign in the third entry of col 1 is required by the
+affine chart. The printed homogeneous formula has a plus sign.
+The accompanying exact script checks both formulas on the
+affine chart and verifies the discrepancy by a counterexample.
+
+For a row-constant matrix in this annihilator, its shared column
+vector must be in all three column spaces. When w=0, a dependence
+can only come from the middle row, which is then fixed zero.
+When w is nonzero, the two one-dimensional columns agree only
+if v=0. Then their intersection with col 0 is nonzero only if
+u0 u1=0, again yielding a fixed zero row. For the transpose, a
+row dependence is a column-constant matrix in the displayed
+annihilator. Col 0 contains the all-ones vector iff u0=u1; col 1
+or col 2 contains it only if u0=-u1 and v equals u0 w or its
+negative, respectively, with u0 w nonzero. These possibilities
+are disjoint. Thus outside the excluded fixed-zero cases, any
+rank deficiency is exactly a single coordinate sum zero.
+
+3. Common isotropy of the last two columns
+
+Use top indices 0,1 and bottom indices 2,3,4. For D in P, let
+A(D) be the first three columns of J+T, whose top two rows are
+ones, and let H(D) have zero diagonal and (i,j) entry equal to
+the 3 by 3 permanent of A(D) deleting rows i,j. Then the permanent
+is X^T H(D) Y for last columns X,Y. Because of the freedom to add
+K to any lift of D, x^T H(D) y vanishes on K for every D.
+
+Let s_i be the sum of bottom row i of D. In H's linear part the
+(i,j) entry is twice the sum of the s_r with r outside {i,j}.
+On K, write U = sum(x) = -sum(y). Since Q0 vanishes, each free
+coordinate s_r gives the equation
+
+  2 x_r y_r + U (x_r - y_r) = 0.
+
+At least two bottom row sums are free coordinate values by the
+previous section. If U were a nonzero linear form on K, write the
+equation as (x_r-U/2)(y_r+U/2)=-U^2/4. Unique factorization of
+polynomials on K implies that x_r,y_r are proportional to U
+at both such rows. The resulting containing space has dimension
+five. On its U=0 slice the other three row coordinates of x,y
+have sums zero and pair nondegenerately, giving Q0 rank at least
+four on the full containing space. An isotropic four-space is
+impossible there. Thus each column sum on K vanishes.
+
+The free rows now satisfy x_r y_r=0 on K. Each must choose one
+column identically zero. If two constrained rows choose opposite
+columns, the associated six-dimensional pairing space is
+nondegenerate. Indeed, the annihilator in 1-perp of the zero-at-r
+coordinate subspace is spanned by e_r - 1/5, whose value at the
+other row is nonzero. An isotropic subspace has dimension <= 3.
+Hence the constrained rows all choose the same zero column, y.
+
+If all three bottom sums are independent, y now has support in
+the top two rows and is antisymmetric there. Either y=0 on K
+(case A), or the equation x dot y=0 forces x0=x1 on K (case B).
+By dimension, K in case A is the entire sum-zero space in x,
+and in case B it consists of x sum zero with x0=x1, together
+with arbitrary antisymmetric top y. These two forms will also
+occur below.
+
+4. Exclusion of the two kernel forms
+
+In case A, adding the sum-zero column x makes all cofactors of
+the X column equal a polynomial c(D). Thus the permanent is
+c(D) sum(X)=120. Both polynomial factors must be constant,
+so c(D)=24 and the directions of X have sum zero. They can be
+removed by adding K. All 4 by 4 permanents obtained by deleting
+one row from the other four columns are therefore 24.
+
+Their first-degree coefficients force every row sum of the
+four-column direction to vanish. Thus the Y direction is zero
+in the two top rows and equals -s_i in bottom row i. In the
+minor deleting a bottom row, the degree-two coefficient is
+minus twice (D_j dot D_k + s_j s_k) for the other two bottom
+rows j,k. All three such expressions vanish. Their sum is a
+nondegenerate quadratic on the nine D coordinates, with matrix
+proportional to (J_3-I_3) tensor (I_3+J_3). Hence dim P <= 4,
+a contradiction.
+
+In case B, adding the antisymmetric top y gives a coefficient
+proportional to (X0-X1) perm(J_3+D). The polynomial permanent
+factor has nonzero constant term, so X0=X1 on the lifts. Use
+the antisymmetric y freedom to also arrange Y0=Y1. The other
+four columns now have identical top rows. Their two top
+cofactors are equal, and varying sum-zero x with x0=x1 makes
+the cofactor vector belong to span(1,e0-e1). The equality of
+its top entries makes it constant across all rows, so the
+same factorization and quadratic argument as in case A apply.
+
+5. The coordinate-plane case
+
+Let p,q be the bottom rows with free sums, and h the bottom row
+with sum zero. Set G={0,1,h}. We have yp=yq=0 on K. The two
+column sums are zero and the restricted pairing form has a
+two-dimensional radical consisting of
+
+  y=0, xp=A, xq=B, x_i=-(A+B)/3 for i in G.
+
+Indeed, y_G ranges over a two-dimensional zero-sum space and
+the radical consists of x_G constant. The ambient restricted
+space has dimension six and quadratic rank four. Its maximal
+isotropic dimension is four, and every maximal isotropic
+four-space contains the radical. In particular K contains it.
+
+Let q_i(D) be the sum of 2 by 2 subpermanents of the two bottom
+rows other than i. Polarize the quadratic K identity against
+the displayed radical. The degree-two D coefficient is
+
+  y_h [(B-2A) q_p + (A-2B) q_q] / 3.
+
+If y_h=0 on K, we have case A or B. Otherwise varying A,B
+forces q_p=q_q=0 on P. Since row h has sum zero, this means
+row h pairs to zero with each of rows p,q.
+
+If the row-h image has dimension two, it is all the two-dimensional
+zero-sum plane. Polarization with the row-h kernel forces the
+other two rows of every kernel element to be constant, giving
+kernel dimension at most two against dim P=5. If the image has
+dimension zero, P has a fixed zero row. The remaining image is
+a line C d. Polynomial cancellation forces the other two rows
+into d-perp, and dimension five gives P = d-perp x C d x d-perp.
+The bilinear form permanent(d,.,.) vanishes on the d-perp plane,
+so its 3 by 3 symmetric matrix has rank <= 2. Its determinant
+is 2 d0 d1 d2, hence sum(d)=0 forces d proportional to a
+permutation of (1,-1,0). Therefore, in a suitable order P is
+
+  D = [[a,a,b],[c,-c,0],[d,d,e]].
+
+6. Exclusion of the last projection
+
+Put u=2a+b, v=2d+e and S=2(ad+ae+bd). In H(D) the offdiagonal
+weight within G is A0=6+2(u+v)+S, between G and p is B0=6+2v,
+between G and q is C0=6+2u, and between p and q is 6. These
+identities follow by expanding the small permanents. The c
+terms cancel because the other rows are symmetric in the
+first two columns.
+
+Take a linear lift D -> (X,Y), with the all-ones background
+added. Write Y_Gsum=3+g, Yp=1+yp and Yq=1+yq with linear g,yp,yq.
+Varying X by the radical makes the p and q cofactors equal
+the mean of the three G cofactors. In particular
+
+  (B0-2 A0/3) Y_Gsum - B0 Yp + (6-C0) Yq = 0
+
+and the equation with p,q interchanged holds. The cubic
+coefficient gives Sg=0, hence g=0. The linear terms give
+yp=-u and yq=-v. The quadratic terms then give S=2uv.
+This is false, for example at a=d=1, b=e=0. This excludes
+the last case and proves the claim.
+
+Primary source
+Chan and Ilten, Fano schemes of determinants and permanents,
+Algebra & Number Theory 9 (2015), section 7B and Proposition 7.4.
+https://msp.org/ant/2015/9-3/ant-v9-n3-p05-s.pdf

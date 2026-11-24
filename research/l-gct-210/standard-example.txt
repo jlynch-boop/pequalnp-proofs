@@ -1,0 +1,131 @@
+Partial results for L-gct-210
+
+The standard dimension-seven example is maximal by inclusion.
+
+The desk asks whether every complex linear space L satisfying
+perm(J + t) = 120 for all t in L has dimension at most eight, where J
+is the 5 by 5 all-ones matrix. The argument below rules out extensions
+of the checked L-gct-080 construction. Other subspaces remain open.
+
+Proof for general n >= 3. Put m = n - 1. The standard space W consists
+of matrices with zero m by m core, bottom row a with sum zero away
+from the corner, right column b arbitrary away from the corner, and
+corner -sum(b). It has dimension 2n - 3. The permanent on J + W is n!.
+
+Suppose A is an additional direction and W + C A is a level space.
+Write A's core as X, bottom row as r, right column as q, and corner
+as s. Write B(z) = J_m + z X, P(z) = perm(B(z)), and P_ij(z) for
+the permanental minor of B(z) deleting row i and column j. Splitting
+permutations according to the final row and column gives
+
+  perm(J + W(a,b) + z A)
+    = (1 + zs - sum(b)) P(z)
+      + sum_{i,j} (1 + z q_i + b_i)(1 + z r_j + a_j) P_ij(z).
+
+1. The mixed a,b term vanishes for every a with sum zero. For each
+   i, P_ij(z) is therefore independent of j. The coefficient of z
+   in P_ij(z) is (m-2)! times the sum of X entries outside row i and
+   column j. If C_j is column j's sum, X_ij - C_j is independent of
+   j for each i. Summing this relation over i shows that (1-m) C_j
+   is independent of j. Since m >= 2, all C_j are equal, so each row
+   of X is constant. Call its value x_i.
+
+2. Set a=0 and compare coefficients of b_i. Since each row of B(z)
+   is constant, write R = sum_j r_j and obtain
+
+   [b_i] perm(J + W(0,b) + z A)
+     = (m-1)! z product_{h != i}(1 + z x_h) (R - m x_i).
+
+   This polynomial vanishes. The product has constant term one,
+   so every x_i = R/m. Denote the common value by x.
+
+3. Subtract the element of W with bottom row r - x 1 and right
+   column q from A. The resulting direction A' has all first m
+   columns constantly x, upper-right entries zero, and corner
+   t = s + sum(q). Along z A' the permanent becomes
+
+   perm(J + z A') = m! (1 + z x)^m (n + z t) = n!.
+
+   The linear coefficient gives t = -n m x. After substitution the
+   quadratic coefficient divided by m! is -n m (m+1) x^2 / 2.
+   Thus x = t = 0, A' = 0, and A belonged to W already.
+
+Exact check at n=5. Each allowed extension direction must be in
+the kernel of every gradient row D perm(J + W(a,b)). The script
+verify_star.py computes those rows at 20 integer sample points, using
+the zero vector and each standard basis vector in the three free
+row parameters and the four free column parameters. Each gradient
+entry is constant plus terms linear in either parameter group or
+bilinear between them, so these evaluated rows span all the gradients.
+
+Exact rational elimination gives rank 17, hence an 8-dimensional
+common tangent kernel. The extra direction modulo W is the matrix
+with all first four columns equal to one, upper-right entries zero,
+and corner -20. Its permanent polynomial is
+
+  perm(J + z A') = 120 (1+z)^4 (1-4z),
+
+whose quadratic coefficient is -1200. The script independently
+checks the gradient rank, the tangent basis, and this polynomial.
+
+A dimension bound for a fixed zero 3 by 3 block
+
+Write a direction as T = [[0,C],[D,E]], with top-left block 3 by 3.
+Every four-edge matching with nonzero product uses two entries of C
+and two of D. It uses neither E nor the zero block. Thus the degree
+four coefficient of perm(J + z T) is Q(C) Q(D), where Q is the sum of
+all 2 by 2 subpermanents, with D transposed if needed.
+
+For a linear level space L this product is identically zero. The
+polynomial ring on L has no zero divisors, so one of the factors
+vanishes identically. On a 3 by 2 matrix with columns a,b, the form
+Q is a^T (J_3 - I_3) b. The middle matrix is invertible, so this is
+a nondegenerate quadratic form on six coordinates. A totally
+isotropic projection has dimension at most three.
+
+The kernel of that projection lives on two rows or two columns.
+The linear and quadratic coefficients impose total sum zero and
+Q = 0. On two columns x,y, writing X = sum(x) and Y = sum(y), this
+quadratic form is X Y - x^T y. It is nondegenerate on the 9-dimensional
+hyperplane X+Y=0. For example, decompose each column into a constant
+and a zero-sum vector. On the scalar coordinate X the restricted
+form is -4 X^2/5, and on the two zero-sum vectors it is their negative
+dot product. The kernel thus has dimension at most four. Rank-nullity
+gives dim L <= 7 for the whole fixed-zero-block family.
+
+A restriction on a fixed zero 2 by 3 block
+
+Now use the same block notation with C of size 2 by 2 and D of size
+3 by 3. The degree five coefficient is perm(C) perm(D). If perm(C)
+vanishes identically, its nondegenerate quadratic form bounds the
+C-projection by two. The kernel is supported on three rows, and
+the checked L-gct-156 bounds it by six for five columns. Such an L
+has dimension at most eight.
+
+If dim L >= 9, perm(D) must therefore vanish identically. Its
+projection has dimension at least five because the kernel is
+supported on two columns and has dimension at most four. Chan and
+Ilten classify the six-dimensional vector subspaces of the 3 by 3
+permanental hypersurface as the six spaces with one fixed zero row
+or column. A projection cannot have higher dimension, since that
+would give infinitely many six-dimensional subspaces. A fixed
+zero row in D gives a 3 by 3 zero block in T; a fixed zero column
+gives a zero column in T, reducing to the checked 4 by 5 bound
+L-gct-215. Both cases give dimension at most seven.
+
+Consequently in this supported family a candidate of dimension
+at least nine must have a D-projection of dimension exactly five
+and kernel dimension four. Chan and Ilten's section 7B describes
+the five-dimensional projections, using projective dimension four.
+This is the initial reduction. The subsequent proof in
+zero-block-bound.txt handles the remaining projections and gives
+the bound of eight for the fixed zero 2 by 3 block.
+
+Source for the projection classification
+Melody Chan and Nathan Ilten, Fano schemes of determinants and
+permanents, Algebra & Number Theory 9 (2015), section 7B.
+https://msp.org/ant/2015/9-3/ant-v9-n3-p05-s.pdf
+
+These partial results are mathematical derivations, with an exact
+arithmetic cross-check for the standard example. The global complex
+bound L-gct-210 remains unresolved.

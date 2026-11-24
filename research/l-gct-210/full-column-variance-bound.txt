@@ -1,0 +1,110 @@
+The dimension bound with full sum-zero variation in one column
+
+Claim. Let L be a complex linear space of 5 by 5 matrices on which
+perm(J+T)=120 for every T in L. If L contains every direction
+supported in a specified column with column sum zero, then
+dim L <= 8. Transposition gives the row version.
+
+Reduction to four-column cofactors
+
+Move the specified column to the last position. Varying it by
+any sum-zero direction makes its five cofactors identical. Write
+D for the other four direction columns, d_i for their rows, and
+c(D) for the common cofactor. On L the polynomial identity
+
+  c(D) (5 + sum(last direction column)) = 120
+
+forces both factors to be constant. At T=0 their values are 24
+and 5. Thus the kernel of projection to D is exactly the given
+four-dimensional space, and the image P is a space of 5 by 4
+directions with every four-row cofactor equal to 24.
+
+The linear term in the cofactor deleting row i gives
+sum(D) - sum(d_i) = 0. Summing over all i gives sum(D)=0, so every
+row lies in U=1-perp in C^4, a nondegenerate three-dimensional
+bilinear dot-product space. The cofactor's quadratic coefficient
+is -2 times the sum of d_j dot d_k over j<k outside i. Summing
+over i gives the total pair sum zero, then subtracting the sum
+outside i gives
+
+  d_i dot (S-d_i)=0, where S=sum_i d_i in U.
+
+Surjectivity of the row sum
+
+If S maps P onto U, choose a linear section sigma of S. Let
+J_i(s)=2 (sigma s)_i - s. The quadratic identity implies that
+J_i(s) dot J_i(s)=s dot s, so each J_i is an invertible isometry.
+For k in K=ker S, polarizing the same identity with sigma s
+gives k_i dot J_i(s)=0 for all s. Thus k_i=0 for every i, and
+K=0. In this case dim P=3.
+
+The row-sum kernel has dimension at most two
+
+On K the quadratic identity is k_i dot k_i=0, so each active
+row image is a single null line in U. Write k_i=alpha_i v_i with
+fixed nonzero null vectors v_i and linear scalar coordinates
+alpha_i on K. Inactive rows are zero. The alpha_i jointly give
+an injection and obey sum_i alpha_i v_i=0.
+
+Suppose first that all active row lines coincide, and use a
+common v. Then sum alpha_i=0. Since v is centered and null,
+its first two elementary symmetric polynomials vanish. If
+e_3(v) is nonzero, cubic terms in the five cofactors yield
+e_3(alpha_except_i)=0 for each i. This uses the rank-one
+matching identity, in which k-entry matching sums are
+k! e_k(v) e_k(alpha_except_i). Summing the five equations
+gives e_3(alpha)=0. Since e_1(alpha)=0, subtracting deletion
+i gives alpha_i (alpha_i^2 + e_2(alpha))=0. The polynomial
+ring on K has no zero divisors. Consequently all active
+alpha_i have the same square and are equal up to signs.
+Their joint injectivity gives dim K <= 1.
+
+If e_3(v)=0, then e_4(v) is nonzero, as otherwise the four
+coordinates of v would be roots of the polynomial t^4 and all
+would be zero. The quartic coefficient of each cofactor is
+24 e_4(v) times the product of its four alpha coordinates.
+Therefore at most three rows can be active. The alpha sum
+condition gives dim K <= 2.
+
+Now suppose at least two active row lines are distinct and
+dim K >= 3. If m is the number of active rows and r is the
+dimension of their span, then dim K <= m-r. Thus m=5, r=2,
+dim K=3, and K is the entire kernel of the amplitude sum.
+The two-dimensional span contains exactly two null lines.
+They cannot be orthogonal since U has Witt index one. The
+lines occur with counts two and three, because a lone row
+in either line would have alpha=0. Write the rows as
+
+  a v, -a v, b w, c w, -(b+c) w.
+
+Delete one v row and examine the cubic coefficient. For
+centered rows x,y,z the sum over injective column choices
+is 2 sum_j x_j y_j z_j. Therefore the purely w term and
+the term linear in a force sum_j w_j^3=0 and sum_j v_j w_j^2=0.
+Here b*c*(-b-c) and the second symmetric polynomial in
+b,c,-b-c are each nonzero as polynomials.
+
+In the Walsh basis (1,1,-1,-1), (1,-1,1,-1), (1,-1,-1,1),
+the dot product is four times the standard form and the
+cubic sum is 24 times the product of the three coordinates.
+The first cubic condition forces one w coordinate to be
+zero, with the other two nonzero by isotropy. The mixed
+cubic condition forces the same v coordinate to be zero.
+After scaling and choosing the signs we have w=(1,i,0)
+and v=(1,-i,0) in this basis, up to interchanging i and -i.
+
+Delete one w row. The quartic coefficient requires
+perm(v,v,w,w)=0. On centered rows the four-entry matching
+sum is the sum over pair partitions of the two dot products,
+minus six times the sum of the entrywise fourfold product.
+For these v,w, their dot product is 8, their self dot products
+are zero, and v_j*w_j=2 at each column. The required permanent
+is 2*8^2 - 6*4*4 = 32, a contradiction. Hence dim K <= 2 in
+all cases.
+
+Conclusion
+
+If S is onto, dim P=3. Otherwise dim P=rank S+dim K<=2+2=4.
+Since the discarded column directions have dimension four,
+dim L <= 8. This is a paper proof for the stated family.
+The unrestricted L-gct-210 remains open.

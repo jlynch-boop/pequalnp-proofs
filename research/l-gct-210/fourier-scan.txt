@@ -1,0 +1,29 @@
+(5,) x (5,): 0 modes pass individually; largest passing span 0; 25 tested supports.
+(5,) x (4, 1): 20 modes pass individually; largest passing span 4; 362 tested supports.
+(5,) x (3, 2): 20 modes pass individually; largest passing span 4; 428 tested supports.
+(5,) x (3, 1, 1): 20 modes pass individually; largest passing span 4; 541 tested supports.
+(5,) x (2, 2, 1): 20 modes pass individually; largest passing span 4; 552 tested supports.
+(5,) x (2, 1, 1, 1): 20 modes pass individually; largest passing span 4; 714 tested supports.
+(5,) x (1, 1, 1, 1, 1): 20 modes pass individually; largest passing span 4; 936 tested supports.
+(4, 1) x (4, 1): 6 modes pass individually; largest passing span 6; 81 tested supports.
+(4, 1) x (3, 2): 15 modes pass individually; largest passing span 6; 193 tested supports.
+(4, 1) x (3, 1, 1): 16 modes pass individually; largest passing span 5; 231 tested supports.
+(4, 1) x (2, 2, 1): 13 modes pass individually; largest passing span 5; 119 tested supports.
+(4, 1) x (2, 1, 1, 1): 14 modes pass individually; largest passing span 4; 159 tested supports.
+(4, 1) x (1, 1, 1, 1, 1): 15 modes pass individually; largest passing span 3; 251 tested supports.
+(3, 2) x (3, 2): 8 modes pass individually; largest passing span 4; 81 tested supports.
+(3, 2) x (3, 1, 1): 10 modes pass individually; largest passing span 5; 190 tested supports.
+(3, 2) x (2, 2, 1): 11 modes pass individually; largest passing span 4; 87 tested supports.
+(3, 2) x (2, 1, 1, 1): 13 modes pass individually; largest passing span 4; 157 tested supports.
+(3, 2) x (1, 1, 1, 1, 1): 15 modes pass individually; largest passing span 3; 250 tested supports.
+(3, 1, 1) x (3, 1, 1): 8 modes pass individually; largest passing span 4; 69 tested supports.
+(3, 1, 1) x (2, 2, 1): 14 modes pass individually; largest passing span 4; 211 tested supports.
+(3, 1, 1) x (2, 1, 1, 1): 12 modes pass individually; largest passing span 3; 125 tested supports.
+(3, 1, 1) x (1, 1, 1, 1, 1): 10 modes pass individually; largest passing span 2; 90 tested supports.
+(2, 2, 1) x (2, 2, 1): 4 modes pass individually; largest passing span 4; 36 tested supports.
+(2, 2, 1) x (2, 1, 1, 1): 7 modes pass individually; largest passing span 3; 47 tested supports.
+(2, 2, 1) x (1, 1, 1, 1, 1): 10 modes pass individually; largest passing span 2; 70 tested supports.
+(2, 1, 1, 1) x (2, 1, 1, 1): 6 modes pass individually; largest passing span 2; 40 tested supports.
+(2, 1, 1, 1) x (1, 1, 1, 1, 1): 5 modes pass individually; largest passing span 1; 35 tested supports.
+(1, 1, 1, 1, 1) x (1, 1, 1, 1, 1): 0 modes pass individually; largest passing span 0; 25 tested supports.
+Across all 28 partition pairs, maximum modular dimension 6; 6105 tested supports.
